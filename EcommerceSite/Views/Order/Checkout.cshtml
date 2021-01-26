@@ -1,0 +1,41 @@
+﻿@model EcommerceSite.Data.Model.Order
+<div class="col-md-6 p-b-30">
+    <form asp-action="Checkout" method="post" class="form-horizontal" role="form">
+        <h3 class="col-md-offset-2">Please fill your information</h3>
+
+        <div class="form-group">
+            <div class="bo4 of-hidden size15 m-b-20">
+                <input asp-for="Name" class="sizefull s-text7 p-l-22 p-r-22" placeholder="Enter name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="bo4 of-hidden size15 m-b-20">
+                <input asp-for="Address" class="sizefull s-text7 p-l-22 p-r-22" placeholder="Enter Address" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="bo4 of-hidden size15 m-b-20">
+                <input asp-for="Email" class="sizefull s-text7 p-l-22 p-r-22" placeholder="Enter email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group" >
+            <div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
+                <select asp-for="PaymentType" class="selection-2" name="Payment Type">
+                    <option value="Cash" selected>Cash</option>
+                    <option value="Check">Check</option>
+                    <option value="Visa">Visa</option>
+                </select>
+                <span asp-validation-for="PaymentType" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="btn-group col-md-offset-2 col-md-6">
+                <input class="btn btn-success" type="submit" value="Order Now" />
+            </div>
+        </div>
+    </form>
+</div>

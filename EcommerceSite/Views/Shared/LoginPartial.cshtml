@@ -1,0 +1,16 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@inject SignInManager<IdentityUser> SignInManager
+@if (SignInManager.IsSignedIn(User))
+{
+    <a href="@Url.Action("Logout","Account")" class="header-wrapicon1 dis-block">
+        <img src="~/images/ProductImages/logout.jpg" class="header-icon1" alt="ICON">
+    </a>
+}
+else
+{
+    <a href="@Url.Action("Login","Account")" class="header-wrapicon1 dis-block">
+        <img src="~/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+    </a>
+}

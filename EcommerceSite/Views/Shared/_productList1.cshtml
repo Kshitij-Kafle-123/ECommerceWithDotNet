@@ -1,0 +1,37 @@
+﻿@model EcommerceSite.Data.Model.Product
+
+
+<style>
+    img {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        width: 230px;
+    }
+
+        img:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+        }
+</style>
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <img src="@Url.Content(Model.Image)" style="overflow: hidden; position: relative; width:180px; height:130px;" />
+        <div class="caption">
+            <h3 class="pull-right">@Model.Rate.ToString("c")</h3>
+            <h3>
+                <a asp-controller="Product" asp-action="Details" asp-route-productId="@Model.ProductId">@Model.ProductName</a>
+            </h3>
+            <p>@Model.ShortDescription</p>
+        </div>
+
+        <div class="addToCart text-right">
+            <p class="button ">
+                <a class="btn btn-default" asp-controller="Product" asp-action="Details"  asp-route-productId="@Model.ProductId">View More</a>
+                <a class="btn btn-success" id="cartButton" asp-controller="Cart" asp-action="AddToShoppingCart" asp-route-productId="@Model.ProductId">
+                    Add to cart
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

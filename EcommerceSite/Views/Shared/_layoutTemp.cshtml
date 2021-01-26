@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"]-ECommerceSite</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" src="~/images/Icons/favicon.png" />
+    <!--===============================================================================================-->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/Fonts/font-awesome.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/Fonts/themify-icons.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/Fonts/icon-font.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/elegant-font/html-css/style.css">
+    <!--===============================================================================================-->
+    <link href="~/Fonts/style.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/Vendor/hamburgers.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/Vendor/animsition.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/Vendor/select2.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/Vendor/slick.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/Vendor/nouislider.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/Vendor/util.css" rel="stylesheet" />
+    <link href="~/Vendor/main.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+</head>
+<body class="animsition">
+    <!-- Header -->
+    <header class="header1">
+        <!-- Header desktop -->
+        <div class="container-menu-header">
+            <div class="topbar">
+                <div class="topbar-social">
+
+                </div>
+                <span class="topbar-child1">
+                    Free shipping for standard order over $100
+                </span>
+
+                <div class="topbar-child2">
+                    <span class="topbar-email">
+                        shahsubodh1998@gmail.com
+                    </span>
+                </div>
+            </div>
+            <div class="wrap_header">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="#" class="logo">
+                        <img src="~/images/Icons/logoo.png" style="height:350px;width:200px" alt="IMG-LOGO">
+                    </a>
+                </div>
+
+                <!-- Menu -->
+                <div class="wrap_menu">
+                    <nav class="menu">
+                        <ul class="main_menu">
+                            <li>
+                                <a href="@Url.Action("Index", "Home")">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">Categories</a>
+                                <ul class="sub_menu">
+                                    @await Component.InvokeAsync("CategoryMenu")
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("List", "Product")">Shop</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("About", "Home")">About</a>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("Contact", "Home")">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Header Icon -->
+                <div class="header-icons">
+                    @await Html.PartialAsync("LoginPartial")
+
+                    <span class="linedivide1"></span>
+                    <a href="@Url.Action("Index","Cart")" class="header-wrapicon2">
+                        <img src="~/images/icons/cart.jpg" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                        <span class="header-icons-noti"> @await Component.InvokeAsync("CartSummary")</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header Mobile -->
+        <div class="wrap_header_mobile">
+            <!-- Logo moblie -->
+            <div class="logo">
+                <a href="#" class="logo">
+                    <img src="~/images/Icons/logoo.png" style="height:350px;width:200px" alt="IMG-LOGO">
+                </a>
+            </div>
+            <!-- Button show menu -->
+            <div class="btn-show-menu">
+                <!-- Header Icon mobile -->
+
+                <div class="header-icons-mobile">
+                    @await Html.PartialAsync("LoginPartial")
+
+                    <span class="linedivide2"></span>
+
+                    <a href="@Url.Action("Index","Cart")" class="header-wrapicon2">
+                        <img src="~/images/Icons/cart.jpg" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                        <span class="header-icons-noti"> @await Component.InvokeAsync("CartSummary")</span>
+
+                        <!-- Header cart noti -->
+
+                    </a>
+                </div>
+
+                <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div class="wrap-side-menu">
+            <nav class="side-menu">
+                <ul class="main-menu">
+                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+                        <span class="topbar-child1">
+                            Free shipping for standard order over $100
+                        </span>
+                    </li>
+                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+                        <div class="topbar-child2-mobile">
+                            <span class="topbar-email">
+                                shahsubodh1998@gmail.com
+                            </span>
+                            <div class="topbar-language rs1-select2">
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item-topbar-mobile p-l-10">
+                        <div class="topbar-social-mobile">
+                        </div>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a href="#">Categories</a>
+                        <ul class="sub-menu">
+                            @await Component.InvokeAsync("CategoryMenu")
+                        </ul>
+                        <i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a href="@Url.Action("List","Product")">Shop</a>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a href="@Url.Action("About","Home")">About</a>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a href="@Url.Action("Contact","Home")">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    @RenderBody();
+    <!-- Title Page -->
+    <!-- Footer -->
+    <footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
+        <div class="flex-w p-b-90">
+            <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
+                <h4 class="s-text12 p-b-30">
+                    GET IN TOUCH
+                </h4>
+
+                <div>
+                    <p class="s-text7 w-size27">
+                        This is an ecommerce project developed for learning propose!
+                    </p>
+                </div>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    Categories
+                </h4>
+                <ul>
+                    @await Component.InvokeAsync("CategoryMenu")
+                </ul>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    Links
+                </h4>
+
+                <ul>
+                    <li class="p-b-9">
+                        <a href="@Url.Action("List","Product")" class="s-text7">
+                            Search
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="@Url.Action("About","Home")" class="s-text7">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="@Url.Action("Contact","Home")" class="s-text7">
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    Help
+                </h4>
+
+                <ul>
+
+                    <li class="p-b-9">
+                        <a href="#" class="s-text7">
+                            FAQs
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="t-center p-l-15 p-r-15">
+            <a href="#">
+                <img class="h-size2" src="~/images/Icons/paypal.png" alt="IMG-PAYPAL">
+            </a>
+
+            <a href="#">
+                <img class="h-size2" src="~/images/Icons/visa.png" alt="IMG-VISA">
+            </a>
+
+            <a href="#">
+                <img class="h-size2" src="~/images/Icons/mastercard.png" alt="IMG-MASTERCARD">
+            </a>
+            <div class="t-center s-text8 p-t-20">
+                Copyright © 2018 All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Back to top -->
+    <div class="btn-back-to-top bg0-hov" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <!-- Container Selection -->
+    <div id="dropDownSelect1"></div>
+    <div id="dropDownSelect2"></div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+
+    <script src="~/Vendor/Jquery/jquery-3.2.1.min.js"></script>
+
+    <script src="~/Vendor/Jquery/animsition.min.js"></script>
+    <script src="~/Vendor/Jquery/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Vendor/Jquery/select2.min.js"></script>
+    <script type="text/javascript">
+        $(".selection-1").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect1')
+        });
+
+        $(".selection-2").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect2')
+        });
+    </script>
+    <script src="~/Vendor/Jquery/slick.min.js"></script>>
+    <script src="~/Vendor/Jquery/slick-custom.min.js"></script>
+    <script src="~/Vendor/Jquery/sweetalert.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+    <script type="text/javascript">
+
+
+        $('.block2-btn-addwishlist').each(function () {
+            var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+            $(this).on('click', function () {
+                swal(nameProduct, "is added to wishlist !", "success");
+            });
+        });
+    </script>
+
+    <!--===============================================================================================-->
+    <script src="~/Vendor/Jquery/nouislider.min.js"></script>
+    <script type="text/javascript">
+        /*[ No ui ]
+        ===========================================================*/
+        var filterBar = document.getElementById('filter-bar');
+
+        noUiSlider.create(filterBar, {
+            start: [50, 200],
+            connect: true,
+            range: {
+                'min': 50,
+                'max': 200
+            }
+        });
+
+        var skipValues = [
+            document.getElementById('value-lower'),
+            document.getElementById('value-upper')
+        ];
+
+        filterBar.noUiSlider.on('update', function (values, handle) {
+            skipValues[handle].innerHTML = Math.round(values[handle]);
+        });
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+    <script src="~/js/map-custom.js"></script>
+    <script src="~/Vendor/Jquery/main.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

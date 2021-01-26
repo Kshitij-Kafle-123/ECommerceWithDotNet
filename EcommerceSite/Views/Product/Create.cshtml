@@ -1,0 +1,72 @@
+﻿@model EcommerceSite.Data.ViewModel.ProductCategoryViewModel
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_Layout";
+}
+
+<div class="form">
+    <form asp-controller="Product" asp-action="Create" method="post" enctype="multipart/form-data" class="form-horizontal" role="form">
+        <h3 class="col-md-offset-2">Create new Product</h3>
+        <div class="form-group">
+            <label asp-for="Product.ProductName" class="col-md-2 control-label"></label>
+            <div class="col-md-4">
+                <input asp-for="Product.ProductName" class="form-control" placeholder="Enter product name" />
+                <span asp-validation-for="Product.ProductName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.Category.CategoryName" class="col-md-2 control-label"></label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.Product.CategoryId,
+                                       new SelectList(Model.Categories.Select(x => new { Value = x.CategoryId, Text = x.CategoryName }), "Value", "Text"), "Select Category",
+                                       htmlAttributes: new { @class = "form-control border-input" })
+                <span asp-validation-for="Product.Category.CategoryName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.Rate" class="col-md-2 control-label"></label>
+            <div class="col-md-4">
+                <input asp-for="Product.Rate" class="form-control" min="0.0001" placeholder="Enter product rate" />
+                <span asp-validation-for="Product.Rate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.ShortDescription" class="col-md-2 control-label"></label>
+            <div class="col-md-4">
+                <textarea asp-for="Product.ShortDescription" class="form-control" placeholder="Enter short description"></textarea>
+                <span asp-validation-for="Product.ShortDescription" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.LongDescription" class="col-md-2 control-label"></label>
+            <div class="col-md-4">
+                <textarea asp-for="Product.LongDescription" class="form-control" placeholder="Enter long Description"></textarea>
+                <span asp-validation-for="Product.LongDescription" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Product.Image" class="col-md-2 control-label"></label>
+            <div class="col-md-3">
+                <input type="file" asp-for="Product.Image" Class="form-control" />
+                <span asp-validation-for="Product.Image" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.Discount" class="col-md-2 control-label"></label>
+            <div class="col-md-4">
+                <input asp-for="Product.Discount" class="form-control" min="0.000" placeholder="Enter discount amount" />
+                <span asp-validation-for="Product.Discount" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="btn-group col-md-offset-2 col-md-6">
+                <button class="btn btn-default" type="submit">@Html.ActionLink("Return", "Index")</button>
+                <input class="btn btn-success" type="submit" value="Create" />
+            </div>
+        </div>
+    </form>
+</div>

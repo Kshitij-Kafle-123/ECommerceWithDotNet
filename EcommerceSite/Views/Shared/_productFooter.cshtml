@@ -1,0 +1,53 @@
+﻿@{
+    var Lst = ViewBag.productList as IEnumerable<EcommerceSite.Data.Model.Product>;
+}
+<section class="relateproduct bgwhite p-t-45 p-b-138">
+    <div class="container">
+        <div class="sec-title p-b-60">
+            <h3 class="m-text5 t-center">
+                Related Products
+            </h3>
+        </div>
+        @foreach (var item in Lst)
+        {
+
+            <div style="display:inline-block;">
+                <div style="display:inline-block;">
+                    <div>
+                        <!-- Block2 -->
+                        <div class="block2">
+                            <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                                <img src="@Url.Content(item.Image)" style=" height:300px;width:330px;" ;alt="IMG-PRODUCT">
+
+                                <div class="block2-overlay trans-0-4">
+                                    <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                        <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                        <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                    </a>
+                                    <div class="block2-btn-addcart w-size1 trans-0-4">
+                                        <a class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" asp-controller="Cart" asp-action="AddToShoppingCart" asp-route-productId="@item.ProductId">
+                                            Add to Cart
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block2-txt p-t-20">
+                                <a href="#" class="block2-name dis-block s-text3 p-b-5">
+                                    <strong style="font-size:1.9em;color:cadetblue;font-style:italic;">
+                                        @item.ProductName
+                                    </strong>
+                                </a>
+
+                                <span class="">
+                                    <strong>@item.Rate.ToString("c")</strong>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</section>
+

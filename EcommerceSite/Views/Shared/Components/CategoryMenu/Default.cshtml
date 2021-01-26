@@ -1,0 +1,9 @@
+﻿    @model IEnumerable<EcommerceSite.Data.Model.Category>
+
+    @foreach (var category in Model)
+        {
+            <li>
+                <a asp-controller="Product" asp-action="List"
+                   asp-route-category="@category.CategoryName">@category.CategoryName</a>
+            </li>
+        }
